@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Newspaper</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Pointe Coupee Today</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta name="description" content="Daily news from around Pointe Coupee Parish.">
+    <meta name="author" content="Tommy Comeaux">
+  </head>
+  <body>
+    <header id="site-header">
+      <div id="masthead">
+        <div id="masthead-site-logo">
+          <%= link_to root_path do %>
+            <%= image_tag "logo-large.gif", class: "brand" %>
+          <% end %>
+        </div><!-- #masthead-site-logo -->
+        <div id="masthead-advertisements">
+          <img src="http://placehold.it/200x75?text=Ad+(200x75)">
+          <img src="http://placehold.it/200x75?text=Ad+(200x75)">
+        </div><!-- #masthead-advertisements -->
+        <div id="masthead-social">
+          <%= image_tag "icon-fb.jpg" %>
+          <%= image_tag "icon-twitter.jpg" %>
+        </div><!-- #masthead-social -->
+      </div><!-- #masthead -->
+      <nav id="site-navbar" class="uk-navbar">
+        <div class="uk-navbar-center">
+          <ul class="uk-navbar-nav">
+            <li><%= link_to 'News', '#' %></li>
+            <li><%= link_to 'Sports', '#' %></li>
+            <li class="uk-parent" data-uk-dropdown aria-haspopup="true" aria-expanded="false">
+              <%= link_to 'Social', '#', class: 'uk-nav-bar-nav-subtitle' %>
+              <div class="uk-dropdown uk-dropdown-navbar">
+                <ul class="uk-nav uk-nav-navbar">
+                  <li><%= link_to 'Events', '#' %></li>
+                  <li><%= link_to 'Birth Announcements', '#' %></li>
+                  <li><%= link_to 'Weddings', '#' %></li>
+                </ul>
+              </div>
+            </li>
+            <li><%= link_to 'School', '#' %></li>
+            <li><%= link_to 'Entertainment', '#' %></li>
+            <li><%= link_to 'Agriculture', '#' %></li>
+            <li><%= link_to 'Obituaries', '#' %></li>
+            <li><%= link_to 'Today in History', '#' %></li>
+            <li><%= link_to 'Quote of the Day', '#' %></li>
+          </ul>
+        </div>
+      </nav>
+    </header><!-- #site-header -->
+    <main>
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-grid">
+            <div class="uk-width-1-5">
+              <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/9nonnatus" data-widget-id="652194534399438848">Tweets by @9nonnatus</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+            <div class="uk-width-3-5">
+              <%= yield %>
+            </div><!-- .uk-width-3-5 -->
+            <div class="uk-width-1-5">
+              <div class="sidebar-advertisements">
+                <img src="http://placehold.it/200x200?text=Ad+(200x200)">
+                <img src="http://placehold.it/200x200?text=Ad+(200x200)">
+              </div>
+            </div>
+          </div><!-- .uk-grid -->
+        </div><!-- .uk-width-4-5 -->
+      </div><!-- uk-grid -->
+    </main>
+    <div class="widgets-bottom">
+      <!-- Forecast.io widget -->
+      <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=30.6932&lon=-91.4343&name=New Roads, LA&color=#00aaff&font=Georgia&units=uk"> </iframe>
+    </div>
+  </body>
 </html>
